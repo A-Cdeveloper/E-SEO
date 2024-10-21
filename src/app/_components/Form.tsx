@@ -1,13 +1,22 @@
-import React from "react";
+"use client";
+import { useFormState } from "react-dom";
+import { sendMessage } from "../_actions";
+import { SubmitButton } from "./SubmitButton";
 
 const Form = () => {
+  const [state, action] = useFormState(sendMessage, null);
+
+  if (state?.status === "success") {
+    return <p>{state?.message}</p>;
+  }
+
   return (
-    <form>
+    <form action={action}>
       <div>
         <input
           type="text"
-          name="name"
-          id="name"
+          name="fullname"
+          id="fullname"
           placeholder="Full name"
           required
         />
@@ -27,9 +36,7 @@ const Form = () => {
       <div>
         <textarea name="message" id="message" placeholder="Message" />
       </div>
-      <div className="text-right">
-        <button type="submit">Send</button>
-      </div>
+      <SubmitButton />
     </form>
   );
 };

@@ -14,8 +14,6 @@ const NavLink = ({
 
   const linkClassName = pathname === href ? "text-orange-normal" : "";
 
-  console.log(href, pathname);
-
   return (
     <li className="w-full border-b border-white/10">
       <Link
