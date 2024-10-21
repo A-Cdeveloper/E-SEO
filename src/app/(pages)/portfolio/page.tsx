@@ -1,4 +1,10 @@
-const Portfolio = () => {
+//import prisma from "@/db/db";
+
+const Portfolio = async () => {
+  //const projects = await prisma.project.findMany();
+
+  //console.log(projects);
+
   return (
     <div>
       <h1 className="text-6xl mb-4 pt-36">

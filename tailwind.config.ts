@@ -30,6 +30,7 @@ const config: Config = {
       "orange-dark": " #E94E45",
       "orange-normal": "#f76e5f",
       "orange-light": "#f7aa7e",
+      green: "#00c48c",
       yellow: "#e2c12c",
       "yellow-light": "#fbe5a2",
       "gray-dark": "#282828",
