@@ -28,17 +28,19 @@ const EmailTemplate = ({ fullname, email, phone, message }: emaildataType) => {
         },
       }}
     >
-      <Html lang="en" className="bg-brand">
-        <Container className="text-white p-4">
-          <Heading as="h1">New Message from E-SEO Website</Heading>
+      <Html lang="en">
+        <Body className="bg-brand">
+          <Container className="text-white p-4">
+            <Heading as="h1">New Message from E-SEO Website</Heading>
 
-          <Text style={text}>Name: {fullname}</Text>
-          <Text style={text}>
-            Email: <Link href={`mailto:${email}`}>{email}</Link>
-          </Text>
-          <Text style={text}>Phone: {phone}</Text>
-          <Text style={text}>Message: {message}</Text>
-        </Container>
+            <Text style={text}>Name: {fullname}</Text>
+            <Text style={text}>
+              Email: <Link href={`mailto:${email}`}>{email}</Link>
+            </Text>
+            <Text style={text}>Phone: {phone}</Text>
+            <Text style={text}>Message: {message}</Text>
+          </Container>
+        </Body>
       </Html>
     </Tailwind>
   );
