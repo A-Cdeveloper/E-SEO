@@ -1,4 +1,5 @@
 import Form from "@/app/_components/Form";
+import Link from "next/link";
 
 const Contact = () => {
   return (
@@ -28,8 +29,23 @@ const Contact = () => {
           <br />
           Bank Account: 00-514-60758 Banka Intesa AD
           <br />
-          Tax ID (2 MB) <br />
-          Identification (142 KB)
+          <Link
+            href="/PIB.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+          >
+            Tax ID document (2 MB)
+          </Link>
+          <br />
+          <Link
+            href="/identifikacija.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+          >
+            Identification document (142 KB)
+          </Link>
         </p>
       </div>
       <h2 className="text-5xl mb-4">
