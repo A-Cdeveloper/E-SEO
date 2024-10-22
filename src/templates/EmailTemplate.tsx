@@ -22,14 +22,14 @@ const EmailTemplate = ({ fullname, email, phone, message }: emaildataType) => {
         theme: {
           extend: {
             colors: {
-              brand: "#2D2E2EFF",
+              brand: "#2D2E2E",
             },
           },
         },
       }}
     >
       <Html lang="en">
-        <Body className="bg-brand">
+        <Body className="bg-brand h-screen">
           <Container className="text-white p-4">
             <Heading as="h1">New Message from E-SEO Website</Heading>
 
@@ -48,6 +48,7 @@ const EmailTemplate = ({ fullname, email, phone, message }: emaildataType) => {
 
 const text = {
   marginBottom: "0px",
+  lineHeight: "1.1",
 };
 
 export default EmailTemplate;
