@@ -6,6 +6,8 @@ import { SubmitButton } from "./SubmitButton";
 const Form = () => {
   const [state, action] = useFormState(sendMessage, null);
 
+  console.log(state);
+
   if (state?.status === "success") {
     return <p className="text-green">{state.message[0]}</p>;
   }
