@@ -12,10 +12,8 @@ export const formSchema = z.object({
     .string()
     .trim()
     .min(1, { message: "Phone is required" })
-    .and(
-      z.string().regex(/^\+\d{1,3}\d{7,}$/, {
-        message:
-          "Phone number must start with a '+' followed by the country code",
-      })
-    ),
+    .refine((val) => /^\+\d{1,3}\d{7,}$/.test(val), {
+      message:
+        "Phone number must start with a '+' followed by the country code",
+    }),
 });

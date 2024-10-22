@@ -52,6 +52,13 @@ button {
   @apply bg-transparent text-white px-8 py-2 rounded-lg border border-white/30 hover:bg-white/10;
 }
 
+input.invalid {
+  @apply border-b border-orange-dark;
+}
+input.invalid::placeholder {
+  @apply text-orange-dark;
+}
+
 .card {
   /* background: linear-gradient(
     to right bottom,

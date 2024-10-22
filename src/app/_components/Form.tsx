@@ -1,15 +1,14 @@
 "use client";
 import { useFormState } from "react-dom";
 import { sendMessage } from "../_actions";
+import FormErrorMessages from "./FormError";
 import { SubmitButton } from "./SubmitButton";
 
 const Form = () => {
   const [state, action] = useFormState(sendMessage, null);
 
-  console.log(state);
-
   if (state?.status === "success") {
-    return <p className="text-green">{state.message[0]}</p>;
+    return <p className="text-green">{state.message as string}</p>;
   }
 
   return (
@@ -21,36 +20,22 @@ const Form = () => {
             name="fullname"
             id="fullname"
             placeholder="Full name"
+
             // required
           />
+          <FormErrorMessages message={state?.message} field="fullname" />
         </div>
         <div>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Email"
-            // required
-          />
+          <input type="email" name="email" id="email" placeholder="Email" />
+          <FormErrorMessages message={state?.message} field="email" />
         </div>
         <div>
-          <input
-            type="phone"
-            name="phone"
-            id="phone"
-            placeholder="Phone"
-            // required
-          />
+          <input type="phone" name="phone" id="phone" placeholder="Phone" />
+          <FormErrorMessages message={state?.message} field="phone" />
         </div>
         <div>
           <textarea name="message" id="message" placeholder="Message" />
         </div>
-        {state?.status === "error" &&
-          state.message.map((error) => (
-            <p key={error} className="mb-0 text-orange-normal">
-              {error}
-            </p>
-          ))}
         <SubmitButton />
       </form>
     </>
