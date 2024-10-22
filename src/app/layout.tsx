@@ -19,7 +19,7 @@ export default function RootLayout({
         <div className="container max-w-6xl mx-auto flex justify-between flex-wrap h-screen">
           <Sidebar />
 
-          <div className="flex-1 self-start">{children}</div>
+          <div className="flex-1 self-start pb-10">{children}</div>
         </div>
       </body>
     </html>

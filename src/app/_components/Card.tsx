@@ -14,7 +14,7 @@ const Card = ({ children, href, bgcolor, headlineColor }: CardPropsType) => {
     >
       <Link
         href={href ? href : "#"}
-        className="w-full h-full flex justify-center items-center card"
+        className="w-full h-full flex justify-center items-center card no-underline"
       >
         <h2 className={`text-5xl ${headlineColor}`}>{children}</h2>
       </Link>

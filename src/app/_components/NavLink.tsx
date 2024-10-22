@@ -18,7 +18,7 @@ const NavLink = ({
     <li className="w-full border-b border-white/10">
       <Link
         href={href}
-        className={`p-2 block text-2xl uppercase hover:text-orange-normal transition-colors duration-500 ${linkClassName}`}
+        className={`p-2 block text-2xl uppercase hover:text-orange-normal transition-colors duration-500 ${linkClassName} no-underline`}
       >
         {children}
       </Link>

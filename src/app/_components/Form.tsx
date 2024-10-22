@@ -13,7 +13,7 @@ const Form = () => {
 
   return (
     <>
-      <form action={action}>
+      <form action={action} className="pe-7">
         <div>
           <input
             type="text"

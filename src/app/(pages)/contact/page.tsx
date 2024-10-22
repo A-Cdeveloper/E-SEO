@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Contact = () => {
   return (
-    <div>
+    <>
       <h1 className="text-6xl mb-4 pt-8 md:pt-36">
         <span>&lt;</span>CONTACT <span>/&gt;</span>
       </h1>
@@ -48,13 +48,13 @@ const Contact = () => {
           </Link>
         </p>
       </div>
-      <h2 className="text-5xl mb-4">
+      <h2 className="text-5xl mb-4 ">
         <span>&lt;</span>Write to us <span>/&gt;</span>
       </h2>
       <div className="ps-7">
         <Form />
       </div>
-    </div>
+    </>
   );
 };
 

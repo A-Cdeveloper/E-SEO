@@ -38,6 +38,10 @@ P {
   @apply mb-4;
 }
 
+a {
+  @apply underline underline-offset-4 decoration-white/50 hover:text-orange-normal hover:decoration-orange-normal;
+}
+
 input,
 textarea {
   @apply bg-transparent border-b border-white/10 text-white w-full px-2 py-1 my-2 focus:outline-none focus:border-b-white/50;
@@ -49,7 +53,7 @@ textarea::placeholder {
 }
 
 button {
-  @apply bg-transparent text-white px-8 py-2 rounded-lg border border-white/30 hover:bg-white/10;
+  @apply bg-transparent text-white px-8 py-2 rounded-lg border border-white/30 hover:text-orange-light hover:border-orange-light;
 }
 
 input.invalid {
