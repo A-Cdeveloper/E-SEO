@@ -10,7 +10,7 @@ const Logo = ({ isHomePage }: { isHomePage: boolean }) => {
         alt="logo"
         width={isHomePage ? 400 : 250}
         height={isHomePage ? 400 : 250}
-        className="mx-auto md:mx-0"
+        className="mx-auto lg:mx-0"
       />
     </Link>
   );

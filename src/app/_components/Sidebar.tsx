@@ -11,14 +11,12 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`w-full md:w-auto max-w-full md:max-w-[350px] h-auto md:h-screen flex flex-col pr-0 md:pr-10 ${
-        isHomePage
-          ? "justify-center pt-10 md:pt-0"
-          : "justify-start pt-10 md:pt-40"
+      className={`w-full lg:w-auto max-w-full lg:max-w-[350px] h-auto lg:h-screen flex flex-col pr-0 lg:pr-10 ${
+        isHomePage ? "justify-center pt-10 lg:pt-0" : "justify-start pt-4"
       }`}
     >
       <Logo isHomePage={isHomePage} />
-      <div className="px-4 mt-3 text-center md:text-start">
+      <div className="px-4 mt-3 text-center lg:text-start">
         <p className="whitespace-pre-line text-sm">
           More than fifteen years of experience in programming and optimization
           websites/apps

@@ -3,10 +3,10 @@ import React from "react";
 const AboutUs = () => {
   return (
     <div>
-      <h1 className="text-6xl mb-4 pt-8 md:pt-36">
+      <h1 className="text-6xl mb-4 pt-8 lg:pt-28">
         <span>&lt;</span>ABOUT US <span>/&gt;</span>
       </h1>
-      <div className="ps-7 mb-10 pe-7 md:pe-0">
+      <div className="ps-7 mb-10 pe-7 lg:pe-0">
         <p>
           We specialize in creating cutting-edge websites and delivering top SEO
           services for businesses. With a passionate team of developers,

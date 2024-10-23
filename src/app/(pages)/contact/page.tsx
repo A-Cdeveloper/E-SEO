@@ -4,7 +4,7 @@ import Link from "next/link";
 const Contact = () => {
   return (
     <>
-      <h1 className="text-6xl mb-4 pt-8 md:pt-36">
+      <h1 className="text-6xl mb-4 pt-8 lg:pt-28">
         <span>&lt;</span>CONTACT <span>/&gt;</span>
       </h1>
       <div className="ps-7 mb-10 pe-7 md:pe-0 grid grid-cols-1 xl:grid-cols-2">
@@ -51,7 +51,7 @@ const Contact = () => {
       <h2 className="text-5xl mb-4 ">
         <span>&lt;</span>Write to us <span>/&gt;</span>
       </h2>
-      <div className="ps-7">
+      <div className="ps-7 pb-10">
         <Form />
       </div>
     </>
