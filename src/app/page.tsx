@@ -7,8 +7,14 @@ export default function Home() {
         <Card
           href="/about-us"
           bgcolor="bg-orange-normal"
-          // className="col-span-4 row-span-4 rotate-45 translate-x-[50%] translate-y-[50%]"
-          className="col-span-2 row-span-2"
+          className="col-span-2 row-span-2 z-10"
+          delay={2}
+          style={{
+            transform: "translateX(40%) translateY(50%) scale(0.5)",
+          }}
+          animate={{
+            transform: "translateX(0%) translateY(0%) scale(1)",
+          }}
         >
           ABOUT US
         </Card>
@@ -16,20 +22,43 @@ export default function Home() {
         <Card
           href="/portfolio"
           bgcolor="bg-yellow"
-          // className="col-span-4 row-span-4 -rotate-45 -translate-x-[50%] translate-y-[50%]"
-          className="col-span-2 row-span-2"
+          className="col-span-2 row-span-2 z-20"
+          delay={3}
+          style={{
+            transform: "translateX(-50%) translateY(50%) scale(0.5)",
+          }}
+          animate={{
+            transform: "translateX(0%) translateY(0%) scale(1)",
+          }}
         >
           portfolio
         </Card>
 
-        <Card bgcolor="bg-gray-dark" className="col-span-2 row-span-2"></Card>
+        <Card
+          bgcolor="bg-gray-dark"
+          className=" col-span-2 row-span-2 z-40"
+          delay={6}
+          style={{
+            transform: "translateX(50%) translateY(-50%) scale(0.95)",
+          }}
+          animate={{
+            transform: "translateX(53%) translateY(-53%) scale(.3)",
+            //borderRadius: "50%",
+          }}
+        ></Card>
 
         <Card
           href="/contact"
           bgcolor="bg-white"
           headlineColor="text-black"
-          //className="col-span-4 row-span-4 -rotate-45 -translate-x-[50%] -translate-y-[50%]"
-          className="col-span-2 row-span-2"
+          className="col-span-2 row-span-2 z-30"
+          delay={5}
+          style={{
+            transform: "translateX(-50%) translateY(-50%) scale(0.5)",
+          }}
+          animate={{
+            transform: "translateX(0%) translateY(0%) scale(1)",
+          }}
         >
           CONTACT
         </Card>
