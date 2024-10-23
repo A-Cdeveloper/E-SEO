@@ -37,12 +37,13 @@ export default function Home() {
         <Card
           bgcolor="bg-gray-dark"
           className=" col-span-2 row-span-2 z-40"
-          delay={6}
+          delay={7}
           style={{
-            transform: "translateX(50%) translateY(-50%) scale(0.95)",
+            transform: "translateX(50%) translateY(-50%) scale(0.70)",
           }}
           animate={{
-            transform: "translateX(53%) translateY(-53%) scale(.3)",
+            transform:
+              "translateX(52.5%) translateY(-52.5%) scale(.3) rotate(45deg)",
             //borderRadius: "50%",
           }}
         ></Card>

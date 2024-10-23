@@ -31,7 +31,7 @@ h2 {
 
 h1 span,
 h2 span {
-  @apply text-white/60 font-light inline-block me-1 text-4xl;
+  @apply text-orange-dark/60 font-light inline-block me-1 text-4xl;
 }
 
 P {
@@ -61,12 +61,4 @@ input.invalid {
 }
 input.invalid::placeholder {
   @apply text-orange-dark;
-}
-
-.card {
-  /* background: linear-gradient(
-    to right bottom,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.2)
-  ); */
 }

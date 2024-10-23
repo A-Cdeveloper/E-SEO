@@ -37,7 +37,7 @@ const Card = ({
     >
       <Link
         href={href ? href : "#"}
-        className="flex justify-center items-center card no-underline"
+        className="flex justify-center items-center card no-underline w-full h-full"
       >
         <h2 className={`text-5xl ${headlineColor}`}>{children}</h2>
       </Link>
