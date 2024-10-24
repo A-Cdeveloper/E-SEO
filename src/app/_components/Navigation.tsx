@@ -1,8 +1,8 @@
-import NavLink from "./NavLink";
+import NavLink from "./ui/NavLink";
 
 const Navigation = () => {
   return (
-    <nav className="mt-3 md:mt-10 px-3">
+    <nav className="mt-3 lg:mt-10 px-3">
       <ul className="flex flex-wrap">
         <NavLink href="/">HOME</NavLink>
         <NavLink href="/about-us">About Us</NavLink>

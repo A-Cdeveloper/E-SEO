@@ -1,4 +1,4 @@
-import { ErrorTypeArr } from "../_actions";
+import { ErrorTypeArr } from "../../_actions";
 
 const fieldErrMessage = (
   errors: ErrorTypeArr[] | string | undefined,

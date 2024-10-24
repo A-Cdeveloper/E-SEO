@@ -27,12 +27,12 @@ const config: Config = {
 
     colors: {
       transparent: "transparent",
-      "orange-dark": " #E94E45",
+      "orange-dark": " #D6372D",
       "orange-normal": "#f76e5f",
       "orange-light": "#f7aa7e",
-      green: "#00c48c",
-      yellow: "#e2c12c",
-      "yellow-light": "#fbe5a2",
+      rosa: "#df9a8d",
+      dirty: "#ede9d0",
+      turquoise: "#56babc",
       "gray-dark": "#282828",
       white: "#ffffff",
       black: "#000000",

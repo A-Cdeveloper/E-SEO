@@ -24,9 +24,12 @@ const Projects = async ({ filter }: { filter: string }) => {
 
   return (
     <>
-      <span className="block my-3 text-sm text-white/80">
-        Number of projects: {numberOfProjects}
-      </span>
+      <div className="text-end">
+        <span className="inline-block my-3 text-sm text-white/60">
+          Number of projects:{" "}
+          <span className="text-white font-bold">{numberOfProjects}</span>
+        </span>
+      </div>
       {projects?.map((project) => (
         <SingleProject key={project.project_id} project={project} />
       ))}

@@ -1,6 +1,6 @@
 "use client";
 import { useFormState } from "react-dom";
-import { sendMessage } from "../_actions";
+import { sendMessage } from "../../_actions";
 import FormErrorMessages from "./FormError";
 import { SubmitButton } from "./SubmitButton";
 
@@ -13,7 +13,7 @@ const Form = () => {
 
   return (
     <>
-      <form action={action} className="pe-7">
+      <form action={action} className="pe-7 pb-5">
         <div>
           <input
             type="text"

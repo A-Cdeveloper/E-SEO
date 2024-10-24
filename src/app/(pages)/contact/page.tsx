@@ -1,21 +1,40 @@
-import Form from "@/app/_components/Form";
+import ContentBox from "@/app/_components/ui/ContentBox";
+import Form from "@/app/_components/ui/Form";
+import Headline from "@/app/_components/ui/Headline";
+import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import qrcode from "../../../images/qrcode.png";
+
+export const metadata: Metadata = {
+  title:
+    "Contact | E-SEO TEAM – Expert Website Creation & Optimization Solutions",
+  description:
+    "Get in touch with E-SEO TEAM for expert website creation and optimization services. Contact us today to discuss your project and boost your online presence.",
+};
 
 const Contact = () => {
   return (
     <>
-      <h1 className="text-6xl mb-4 pt-8 lg:pt-28">
-        <span>&lt;</span>CONTACT <span>/&gt;</span>
-      </h1>
-      <div className="ps-7 mb-10 pe-7 md:pe-0 grid grid-cols-1 xl:grid-cols-2">
-        <p>
-          Mobile: +381 63 7675989
-          <br />
-          Tax ID (PIB): 107319556
-          <br />
-          E-mail: <a href="mailto:kontakt@e-seo.info">kontakt@e-seo.info</a>
-          <br />
-        </p>
+      <Headline>CONTACT</Headline>
+      <ContentBox extraClass="mb-16 grid grid-cols-1 xl:grid-cols-2">
+        <>
+          <p>
+            Mobile: +381 63 7675989
+            <br />
+            Tax ID (PIB): 107319556
+            <br />
+            E-mail: <a href="mailto:kontakt@e-seo.info">kontakt@e-seo.info</a>
+            <br />
+            <Image
+              src={qrcode}
+              alt="qrcode"
+              width={200}
+              height={200}
+              className="mt-5"
+            />
+          </p>
+        </>
         <p>
           PIB: 107319556
           <br />
@@ -47,13 +66,11 @@ const Contact = () => {
             Identification document (142 KB)
           </Link>
         </p>
-      </div>
-      <h2 className="text-5xl mb-4 ">
-        <span>&lt;</span>Write to us <span>/&gt;</span>
-      </h2>
-      <div className="ps-7 pb-10">
+      </ContentBox>
+      <Headline level={2}>Write to us</Headline>
+      <ContentBox>
         <Form />
-      </div>
+      </ContentBox>
     </>
   );
 };

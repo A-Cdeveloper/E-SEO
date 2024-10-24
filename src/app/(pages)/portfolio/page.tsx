@@ -1,6 +1,16 @@
 import ProjectsFilters from "@/app/_components/projects/ProjectsFilters";
 import Projects from "@/app/_components/projects/Projects";
 import { Suspense } from "react";
+import Headline from "@/app/_components/ui/Headline";
+import ContentBox from "@/app/_components/ui/ContentBox";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title:
+    "Portfolio | E-SEO TEAM – Expert Website Creation & Optimization Solutions",
+  description:
+    "Explore E-SEO TEAM's portfolio of custom website designs and successful optimization projects. See how we've helped businesses grow their online presence with cutting-edge solutions.",
+};
 
 const Portfolio = async ({
   searchParams,
@@ -11,17 +21,15 @@ const Portfolio = async ({
 
   // console.log(filter);
   return (
-    <div>
-      <h1 className="text-6xl mb-4 pt-8 md:pt-28">
-        <span>&lt;</span>Portfolio <span>/&gt;</span>
-      </h1>
-      <div className="ps-7 my-10">
+    <>
+      <Headline>Portfolio</Headline>
+      <ContentBox>
         <ProjectsFilters />
         <Suspense fallback={<div>Loading...</div>}>
           <Projects filter={filter} />
         </Suspense>
-      </div>
-    </div>
+      </ContentBox>
+    </>
   );
 };
 

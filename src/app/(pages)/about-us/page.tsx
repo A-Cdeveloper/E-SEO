@@ -1,12 +1,20 @@
+import ContentBox from "@/app/_components/ui/ContentBox";
+import Headline from "@/app/_components/ui/Headline";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title:
+    "About us | E-SEO TEAM – Expert Website Creation & Optimization Solutions",
+  description:
+    "We specialize in creating cutting-edge websites and delivering top SEO services for businesses.",
+};
 
 const AboutUs = () => {
   return (
-    <div>
-      <h1 className="text-6xl mb-4 pt-8 lg:pt-28">
-        <span>&lt;</span>ABOUT US <span>/&gt;</span>
-      </h1>
-      <div className="ps-7 mb-10 pe-7 lg:pe-0">
+    <>
+      <Headline>ABOUT US</Headline>
+      <ContentBox extraClass="mb-16">
         <p>
           We specialize in creating cutting-edge websites and delivering top SEO
           services for businesses. With a passionate team of developers,
@@ -27,11 +35,10 @@ const AboutUs = () => {
           Whether you need a brand-new website, a redesign, or an SEO overhaul,
           we&apos;re here to make your vision a reality.
         </p>
-      </div>
-      <h2 className="text-5xl mb-4">
-        <span>&lt;</span>Tech stack <span>/&gt;</span>
-      </h2>
-      <div className="ps-7">
+      </ContentBox>
+
+      <Headline level={2}>Tech stack</Headline>
+      <ContentBox>
         <p>
           Frontend: HTML5 | CSS3/SCSS | Bootstrap | Tailwind CSS | MUI X |
           JavaScript (ES6+) | React | React Native | Next.js | Redux <br />
@@ -39,8 +46,8 @@ const AboutUs = () => {
           Backend: Node.js, Express | Php <br />
           Databases: MySQL | SQLite | MongoDB | PostgreSQL
         </p>
-      </div>
-    </div>
+      </ContentBox>
+    </>
   );
 };
 
