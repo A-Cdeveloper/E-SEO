@@ -24,7 +24,7 @@ const Projects = async ({ filter }: { filter: string }) => {
 
   return (
     <>
-      <span className="block my-2 text-sm">
+      <span className="block my-3 text-sm text-white/80">
         Number of projects: {numberOfProjects}
       </span>
       {projects?.map((project) => (

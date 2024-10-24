@@ -10,7 +10,7 @@ const SingleProject = ({ project }: { project: ProjectType }) => {
         href={`${project.project_url}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex justify-between items-center border-b border-white/10 no-underline leading-7"
+        className="flex justify-between items-center border-t border-white/10 no-underline leading-8"
       >
         {project.project_name} - {removeHttps(project.project_url)}
       </Link>
