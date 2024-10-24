@@ -12,7 +12,7 @@ const Sidebar = () => {
   return (
     <div
       className={`w-full lg:w-auto max-w-full lg:max-w-[350px] h-auto lg:h-screen flex flex-col pr-0 lg:pr-10 ${
-        isHomePage ? "justify-center pt-10 lg:pt-0" : "justify-start pt-4"
+        isHomePage ? "justify-center pt-10 lg:pt-0" : "justify-start pt-8"
       }`}
     >
       <Logo isHomePage={isHomePage} />

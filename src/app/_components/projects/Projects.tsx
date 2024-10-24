@@ -16,6 +16,9 @@ const Projects = async ({ filter }: { filter: string }) => {
           mode: "insensitive", // Case-insensitive filter
         },
       },
+      orderBy: {
+        project_name: "asc",
+      },
     };
   }
 

@@ -2,7 +2,7 @@ import FilterLink from "./FilterLink";
 
 const ProjectsFilters = () => {
   return (
-    <div className="flex justify-start md:justify-between items-start flex-wrap border-b border-t border-white/30 py-2 px-2 gap-4">
+    <div className="flex justify-start md:justify-between items-start flex-wrap border-b border-t border-white/30 py-2 px-2 gap-4 mt-10">
       <span>
         <span>
           <FilterLink href="portfolio">All</FilterLink>
