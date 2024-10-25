@@ -25,7 +25,6 @@ const Card = ({
   animate,
   delay,
 }: CardPropsType) => {
-  console.log(style);
   return (
     <motion.div
       initial={style}
