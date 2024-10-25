@@ -1,11 +1,8 @@
 import prisma from "@/db/db";
 import SingleProject from "./SingleProject";
+import { ProjectType } from "@/types/project";
 
 const Projects = async ({ filter }: { filter: string }) => {
-  //await new Promise((resolve) => setTimeout(resolve, 4000));
-
-  //console.log(filter);
-
   let query = {};
 
   if (filter) {
@@ -22,7 +19,17 @@ const Projects = async ({ filter }: { filter: string }) => {
     };
   }
 
-  const projects = await prisma.project.findMany(query);
+  let projects: ProjectType[] = [];
+
+  try {
+    projects = await prisma.project.findMany(query);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error(error.message); // Safely access `message`
+      throw new Error("Error fetching projects!");
+    }
+    throw new Error("Unknown error fetching projects!");
+  }
   const numberOfProjects = projects.length;
 
   return (
