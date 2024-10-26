@@ -1,4 +1,4 @@
-import { removeHttps } from "@/lib/helper";
+import { removeHttps } from "@/utils/helper";
 import { ProjectType } from "@/types/project";
 import Link from "next/link";
 import React from "react";

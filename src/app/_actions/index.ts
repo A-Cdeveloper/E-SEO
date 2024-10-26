@@ -1,6 +1,6 @@
 "use server";
 
-import { formSchema } from "@/lib/validation";
+import { formSchema } from "@/utils/formvalidation";
 import EmailTemplate from "@/email-templates/EmailTemplate";
 import { Resend } from "resend";
 
