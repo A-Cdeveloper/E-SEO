@@ -64,7 +64,7 @@ input.invalid::placeholder {
 }
 
 .pagination {
-  @apply flex justify-end gap-2 border-t border-white/10 py-3;
+  @apply flex justify-end gap-2 border-t border-white/10 py-3 text-sm;
 
   a {
     @apply no-underline text-white/60 hover:text-white;
