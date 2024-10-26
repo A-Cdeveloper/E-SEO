@@ -1,6 +1,6 @@
 import prisma from "@/db/db";
-import SingleProject from "./SingleProject";
 import { ProjectType } from "@/types/project";
+import PaginatedProjects from "./PaginatedProjects";
 
 const Projects = async ({ filter }: { filter: string }) => {
   let query = {};
@@ -40,9 +40,7 @@ const Projects = async ({ filter }: { filter: string }) => {
           <span className="text-white font-bold">{numberOfProjects}</span>
         </span>
       </div>
-      {projects?.map((project) => (
-        <SingleProject key={project.project_id} project={project} />
-      ))}
+      <PaginatedProjects projects={projects} />
     </>
   );
 };
