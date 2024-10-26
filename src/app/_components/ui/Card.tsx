@@ -43,7 +43,11 @@ const Card = ({
         href={href ? href : "#"}
         className="flex justify-center items-center card no-underline w-full h-full"
       >
-        <h2 className={`text-5xl ${headlineColor}`}>{children}</h2>
+        <h2
+          className={`text-5xl sm:text-3xl md:text-5xl lg:text-4xl xl:text-5xl ${headlineColor}`}
+        >
+          {children}
+        </h2>
       </Link>
     </motion.div>
   );

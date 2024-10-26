@@ -4,8 +4,10 @@ import ReactPaginate from "react-paginate";
 const PaginateBar = ({
   pageCount,
   handlePageClick,
+  currentPage,
 }: {
   pageCount: number;
+  currentPage: number;
   handlePageClick: (e: { selected: number }) => void;
 }) => {
   return (
@@ -19,6 +21,7 @@ const PaginateBar = ({
       pageRangeDisplayed={3}
       onPageChange={handlePageClick}
       containerClassName={"pagination"}
+      forcePage={currentPage}
       activeClassName={"active"}
       pageClassName={"page-item"}
       pageLinkClassName={"page-link"}

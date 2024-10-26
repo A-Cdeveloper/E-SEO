@@ -62,3 +62,15 @@ input.invalid {
 input.invalid::placeholder {
   @apply text-orange-dark;
 }
+
+.pagination {
+  @apply flex justify-end gap-2 border-t border-white/10 py-3;
+
+  a {
+    @apply no-underline text-white/60 hover:text-white;
+  }
+
+  .active a {
+    @apply text-white;
+  }
+}
