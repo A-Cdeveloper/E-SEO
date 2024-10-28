@@ -1,8 +1,9 @@
 "use server";
 
-import { formSchema } from "@/utils/formvalidation";
+import { createFormSchema } from "@/utils/formvalidation";
 import EmailTemplate from "@/email-templates/EmailTemplate";
 import { Resend } from "resend";
+import { getTranslations } from "next-intl/server";
 
 //const timeout = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
@@ -22,8 +23,11 @@ export const sendMessage = async (
     message: formData.get("message") as string,
   };
 
+  const t = await getTranslations("ContactPage");
+
   // Zod validation
-  const validation = formSchema.safeParse(custumer);
+  const zodObj = await createFormSchema();
+  const validation = zodObj.safeParse(custumer);
 
   if (!validation.success) {
     const errorArr: ErrorTypeArr[] = [];
@@ -48,8 +52,9 @@ export const sendMessage = async (
     });
     return {
       status: "success",
-      message: `Thank you for your message ${custumer.fullname}.
-      We will get back to you shortly.`,
+      // message: `Thank you for your message ${custumer.fullname}.
+      // We will get back to you shortly.`,
+      message: t("successMsg"),
     };
   } catch (error) {
     return {

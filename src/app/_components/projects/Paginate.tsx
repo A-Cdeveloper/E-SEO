@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import ReactPaginate from "react-paginate";
 
 const PaginateBar = ({
@@ -10,10 +11,12 @@ const PaginateBar = ({
   currentPage: number;
   handlePageClick: (e: { selected: number }) => void;
 }) => {
+  const t = useTranslations("website");
+
   return (
     <ReactPaginate
-      previousLabel={"Previous"}
-      nextLabel={"Next"}
+      previousLabel={t("pagination.previous")}
+      nextLabel={t("pagination.next")}
       breakLabel={"..."}
       breakClassName={"break-me"}
       pageCount={pageCount}

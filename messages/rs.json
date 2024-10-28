@@ -6,9 +6,18 @@
             "about": "O nama",
             "portfolio": "Portfolio",
             "contact": "Kontakt"
+        },
+        "pagination": {
+            "previous": "Predhodna",
+            "next": "Sledeća",
+            "numberOfProjects": "Ukupno projekata: "
         }
     },
     "HomePage": {
+        "metadata": {
+            "title": "E-SEO TEAM – Expert Website Creation & Optimization Solutions",
+            "description": "Professional website creation and optimization services by E-SEO TEAM. Enhance your online presence with custom-built, SEO-friendly websites designed to drive traffic and boost performance."
+        },
         "aboutCardTitle": "O nama",
         "portfolioCardTitle": "Portfolio",
         "contactCardTitle": "Kontakt",
@@ -24,12 +33,38 @@
             "paragraph4": "Bilo da vam je potrebna potpuno novi websajt, redizajn ili optimizacija SEO-a, mi smo tu da vašu viziju pretvorimo u stvarnost"
         }
     },
+    "PortfilioPage": {
+        "title": "Portfolio"
+    },
     "ContactPage": {
         "title": "Kontakt",
-        "about": "Da bi promenili lokaciju, Kontakt"
-    },
-    "ProjectsPage": {
-        "title": "Projekti",
-        "about": "Projekti"
+        "secondTitle": "pišite nam",
+        "data": {
+            "phone": "Telefon: ",
+            "email": "Email: ",
+            "pib": "PIB: ",
+            "registration_num": "MatiČni broj: ",
+            "business_code": "Šifra delatnosti: ",
+            "authorized_person": "Ovlašćeno lice: ",
+            "bank_account": "Račun: ",
+            "tax_document": "PIB",
+            "identification_document": "Identifikacija"
+        },
+        "form": {
+            "fullname": "Ime i prezime",
+            "email": "Email",
+            "phone": "Telefon",
+            "message": "Poruka",
+            "submit": "Pošalji",
+            "sending": "Šalje se..."
+        },
+        "validation": {
+            "nameRequired": "Ime i prezime su obavezni",
+            "emailRequired": "Email je obavezan",
+            "emailInvalid": "Unestite pravilan email",
+            "phoneRequired": "Telefon je obavezan",
+            "phoneFormat": "Telefon mora biti u formatu +381123456789"
+        },
+        "successMsg": "Hvala vam na poruci. Odgovoricemo Vam u najkraćem mogućem roku."
     }
 }

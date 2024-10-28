@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import qrcode from "../../../../images/qrcode.png";
+import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
   title:
@@ -14,17 +15,17 @@ export const metadata: Metadata = {
 };
 
 const Contact = () => {
+  const t = useTranslations("ContactPage");
   return (
     <>
-      <Headline>CONTACT</Headline>
+      <Headline>{t("title")}</Headline>
       <ContentBox extraClass="mb-16 grid grid-cols-1 xl:grid-cols-2">
         <>
           <p>
-            Mobile: +381 63 7675989
+            {t("data.phone")} +381 63 7675989
             <br />
-            Tax ID (PIB): 107319556
-            <br />
-            E-mail: <a href="mailto:kontakt@e-seo.info">kontakt@e-seo.info</a>
+            {t("data.email")}:{" "}
+            <a href="mailto:kontakt@e-seo.info">kontakt@e-seo.info</a>
             <br />
             <Image
               src={qrcode}
@@ -36,17 +37,17 @@ const Contact = () => {
           </p>
         </>
         <p>
-          PIB: 107319556
+          {t("data.pib")} 107319556
           <br />
-          Registration Num.: 62659459
+          {t("data.registration_num")}62659459
           <br />
-          Business Code: 6201 (Computer Programming)
+          {t("data.business_code")}6201 (Computer Programming)
           <br />
-          Authorized Person: IT Engineer Aleksandar Cvetković
+          {t("data.authorized_person")} IT Engineer Aleksandar Cvetković
           <br />
-          Bank Account: 160-362412-16 Banka Intesa AD
+          {t("data.bank_account")} 160-362412-16 Banka Intesa AD
           <br />
-          Bank Account: 00-514-60758 Banka Intesa AD
+          {t("data.bank_account")} 00-514-60758 Banka Intesa AD
           <br />
           <Link
             href="/PIB.pdf"
@@ -54,7 +55,7 @@ const Contact = () => {
             rel="noopener noreferrer"
             download
           >
-            Tax ID document (2 MB)
+            {t("data.tax_document")} (2 MB)
           </Link>
           <br />
           <Link
@@ -63,11 +64,11 @@ const Contact = () => {
             rel="noopener noreferrer"
             download
           >
-            Identification document (142 KB)
+            {t("data.identification_document")} (142 KB)
           </Link>
         </p>
       </ContentBox>
-      <Headline level={2}>Write to us</Headline>
+      <Headline level={2}>{t("secondTitle")}</Headline>
       <ContentBox>
         <Form />
       </ContentBox>

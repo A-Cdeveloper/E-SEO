@@ -3,12 +3,14 @@ import { useFormState } from "react-dom";
 import { sendMessage } from "../../_actions";
 import FormErrorMessages from "./FormError";
 import { SubmitButton } from "./SubmitButton";
+import { useTranslations } from "next-intl";
 
 const Form = () => {
   const [state, action] = useFormState(sendMessage, null);
+  const t = useTranslations("ContactPage");
 
   if (state?.status === "success") {
-    return <p className="text-green">{state.message as string}</p>;
+    return <p className="text-turquoise my-5">{state.message as string}</p>;
   }
 
   return (
@@ -19,22 +21,42 @@ const Form = () => {
             type="text"
             name="fullname"
             id="fullname"
-            placeholder="Full name"
+            placeholder={t("form.fullname")}
 
             // required
           />
-          <FormErrorMessages message={state?.message} field="fullname" />
+          {state?.message && (
+            <FormErrorMessages message={state?.message} field="fullname" />
+          )}
         </div>
         <div>
-          <input type="email" name="email" id="email" placeholder="Email" />
-          <FormErrorMessages message={state?.message} field="email" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder={t("form.email")}
+          />
+          {state?.message && (
+            <FormErrorMessages message={state?.message} field="email" />
+          )}
         </div>
         <div>
-          <input type="phone" name="phone" id="phone" placeholder="Phone" />
-          <FormErrorMessages message={state?.message} field="phone" />
+          <input
+            type="phone"
+            name="phone"
+            id="phone"
+            placeholder={t("form.phone")}
+          />
+          {state?.message && (
+            <FormErrorMessages message={state?.message} field="phone" />
+          )}
         </div>
         <div>
-          <textarea name="message" id="message" placeholder="Message" />
+          <textarea
+            name="message"
+            id="message"
+            placeholder={t("form.message")}
+          />
         </div>
         <SubmitButton />
       </form>

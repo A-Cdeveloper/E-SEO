@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import Headline from "@/app/_components/ui/Headline";
 import ContentBox from "@/app/_components/ui/ContentBox";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title:
@@ -18,11 +19,11 @@ const Portfolio = async ({
   searchParams: Promise<{ [key: string]: string }>;
 }) => {
   const { filter } = await searchParams;
-
+  const t = await getTranslations("PortfilioPage");
   // console.log(filter);
   return (
     <>
-      <Headline>Portfolio</Headline>
+      <Headline>{t("title")}</Headline>
       <ContentBox>
         <ProjectsFilters />
         <Suspense fallback={<div>Loading...</div>}>

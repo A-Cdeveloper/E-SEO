@@ -1,19 +1,26 @@
 // lib/validation.ts
 import { z } from "zod";
+import { getTranslations } from "next-intl/server";
 
-export const formSchema = z.object({
-  fullname: z.string().trim().min(1, { message: "Name is required" }),
-  email: z
-    .string()
-    .trim()
-    .min(1, { message: "Email is required" })
-    .or(z.string().email({ message: "Invalid email address" })),
-  phone: z
-    .string()
-    .trim()
-    .min(1, { message: "Phone is required" })
-    .refine((val) => /^\+\d{1,3}\d{7,}$/.test(val), {
-      message:
-        "Phone number must start with a '+' followed by the country code",
-    }),
-});
+export const createFormSchema = async () => {
+  const t = await getTranslations("ContactPage");
+
+  return z.object({
+    fullname: z
+      .string()
+      .trim()
+      .min(1, { message: t("validation.nameRequired") }),
+    email: z
+      .string()
+      .trim()
+      .min(1, { message: t("validation.emailRequired") })
+      .or(z.string().email({ message: t("validation.emailInvalid") })),
+    phone: z
+      .string()
+      .trim()
+      .min(1, { message: t("validation.phoneRequired") })
+      .refine((val) => /^\+\d{1,3}\d{7,}$/.test(val), {
+        message: t("validation.phoneFormat"),
+      }),
+  });
+};

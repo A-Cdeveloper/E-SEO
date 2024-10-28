@@ -20,7 +20,7 @@ const FormErrorMessages = ({
   field: string;
 }) => {
   return (
-    <p className="text-orange-normal text-sm">
+    <p className="text-orange-normal text-sm mb-0">
       {fieldErrMessage(message as ErrorTypeArr[] | string, field)}
     </p>
   );

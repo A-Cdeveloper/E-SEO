@@ -1,8 +1,10 @@
 import prisma from "@/db/db";
 import { ProjectType } from "@/types/project";
 import PaginatedProjects from "./PaginatedProjects";
+import { getTranslations } from "next-intl/server";
 
 const Projects = async ({ filter }: { filter: string }) => {
+  const t = await getTranslations("website");
   let query = {};
 
   if (filter) {
@@ -36,7 +38,7 @@ const Projects = async ({ filter }: { filter: string }) => {
     <>
       <div className="text-end">
         <span className="inline-block my-3 text-sm text-white/60">
-          Number of projects:{" "}
+          {t("pagination.numberOfProjects")}{" "}
           <span className="text-white font-bold">{numberOfProjects}</span>
         </span>
       </div>
