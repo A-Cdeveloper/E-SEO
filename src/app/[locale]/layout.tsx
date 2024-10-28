@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Sidebar from "../_components/Sidebar";
 import "./globals.css";
+import LangsSwitcher from "../_components/LangsSwitcher";
 
 export const metadata: Metadata = {
   title: "E-SEO TEAM – Expert Website Creation & Optimization Solutions",
@@ -32,7 +33,8 @@ export default async function RootLayout({
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <div className="container max-w-6xl mx-auto flex justify-between flex-wrap h-screen">
+          <div className="container max-w-6xl mx-auto flex justify-between flex-wrap h-screen relative">
+            <LangsSwitcher />
             <Sidebar />
 
             <div className="flex-1 border-l border-white/10 px-4 lg:px-10">
