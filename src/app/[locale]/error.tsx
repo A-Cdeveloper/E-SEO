@@ -1,8 +1,8 @@
 "use client"; // Error boundaries must be Client Components
 
 import { useEffect } from "react";
-import Headline from "./_components/ui/Headline";
-import ContentBox from "./_components/ui/ContentBox";
+import Headline from "../_components/ui/Headline";
+import ContentBox from "../_components/ui/ContentBox";
 
 export default function Error({
   error,

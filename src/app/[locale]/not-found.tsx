@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import ContentBox from "./_components/ui/ContentBox";
-import Headline from "./_components/ui/Headline";
+import ContentBox from "../_components/ui/ContentBox";
+import Headline from "../_components/ui/Headline";
 
 export const metadata: Metadata = {
   title:
