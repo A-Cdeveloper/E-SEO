@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
+
+import { usePathname } from "@/i18n/routing";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
-import { usePathname } from "next/navigation";
 
 const Sidebar = () => {
   const pathname = usePathname();

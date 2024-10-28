@@ -1,6 +1,6 @@
 "use client";
-import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname, Link } from "@/i18n/routing";
+import { useSearchParams } from "next/navigation";
 import { useCallback } from "react";
 
 const FilterLink = ({
