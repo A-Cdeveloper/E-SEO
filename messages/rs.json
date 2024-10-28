@@ -1,11 +1,28 @@
 {
+    "website": {
+        "intro": " Više od petnaest godina iskustva u programiranju i optimizaciji websajtova/aplikacija.",
+        "navigation": {
+            "home": "Početna",
+            "about": "O nama",
+            "portfolio": "Portfolio",
+            "contact": "Kontakt"
+        }
+    },
     "HomePage": {
-        "title": "Zdravo svete!",
-        "about": "Ovde možete pronaći aktivnosti za vežbanje svojih veština čitanja. Čitanje će vam pomoći da poboljšate svoje razumevanje jezika i izgradite svoj rečnik. Materijali za učenje u ovom odeljku su napisani i organizovani po nivoima."
+        "aboutCardTitle": "O nama",
+        "portfolioCardTitle": "Portfolio",
+        "contactCardTitle": "Kontakt",
+        "moto": "jedinstvena rešenja."
     },
     "AboutPage": {
         "title": "O nama",
-        "about": "Da bi promenili lokaciju, korisnici mogu da posete rutu sa prefiksom. Ovo će imati prednost u odnosu na prethodno podudarni lokal koji je sačuvan u kolačiću ili zaglavlju jezika prihvatanja i ažuriraće prethodnu vrednost kolačića."
+        "secondTitle": "Tehnologije",
+        "textContent": {
+            "paragraph1": "Specijalizovani smo za kreiranje najsavremenijih websajtova i aplikacija i pružanje vrhunskih SEO usluga. Sa  timom programera, dizajnera i stručnjaka za digitalni marketing, pravimo prilagođena rešenja koja povećavaju vidljivost na mreži, poboljšavaju korisničko iskustvo i postižu rezultate.",
+            "paragraph2": "Naša misija je jednostavna: da pomognemo lokalnim i međunarodnim kompanijama da rastu kroz inovativna web rešenja i SEO strategije zasnovane na podacima.",
+            "paragraph3": "Konstantno pratimo najnovije trendove, osiguravajući da vaše poslovanje bude bolje rangirano i ističe se u digitalnom prostoru",
+            "paragraph4": "Bilo da vam je potrebna potpuno novi websajt, redizajn ili optimizacija SEO-a, mi smo tu da vašu viziju pretvorimo u stvarnost"
+        }
     },
     "ContactPage": {
         "title": "Kontakt",
@@ -14,11 +31,5 @@
     "ProjectsPage": {
         "title": "Projekti",
         "about": "Projekti"
-    },
-    "Navigation": {
-        "home": "Pocetna",
-        "about": "O nama",
-        "contact": "Kontakt",
-        "projects": "Projekti"
     }
 }

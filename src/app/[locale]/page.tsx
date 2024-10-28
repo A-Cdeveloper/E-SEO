@@ -1,6 +1,9 @@
 import Card from "../_components/ui/Card";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
+  const t = useTranslations("HomePage");
+
   return (
     <div className="flex flex-col h-screen justify-start lg:justify-center">
       <div className="grid sm:grid-cols-4 sm:grid-rows-4 gap-4 relative">
@@ -18,7 +21,7 @@ export default function Home() {
             opacity: 1,
           }}
         >
-          ABOUT US
+          {t("aboutCardTitle")}
         </Card>
 
         <Card
@@ -35,7 +38,7 @@ export default function Home() {
             opacity: 1,
           }}
         >
-          portfolio
+          {t("portfolioCardTitle")}
         </Card>
 
         <Card
@@ -67,7 +70,7 @@ export default function Home() {
             opacity: 1,
           }}
         >
-          CONTACT
+          {t("contactCardTitle")}
         </Card>
 
         <Card
@@ -82,7 +85,7 @@ export default function Home() {
             opacity: 1,
           }}
         >
-          unique solutions.
+          {t("moto")}
         </Card>
       </div>
     </div>

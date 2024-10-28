@@ -3,11 +3,13 @@
 import { usePathname } from "@/i18n/routing";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
+import { useTranslations } from "next-intl";
 
 const Sidebar = () => {
   const pathname = usePathname();
-
   const isHomePage = pathname === "/";
+
+  const t = useTranslations("website");
 
   return (
     <div
@@ -17,10 +19,7 @@ const Sidebar = () => {
     >
       <Logo isHomePage={isHomePage} />
       <div className="px-4 mt-3 text-center lg:text-start">
-        <p className="whitespace-pre-line text-sm">
-          More than fifteen years of experience in programming and optimization
-          websites/apps
-        </p>
+        <p className="whitespace-pre-line text-sm">{t("intro")}</p>
       </div>
       {!isHomePage && <Navigation />}
     </div>

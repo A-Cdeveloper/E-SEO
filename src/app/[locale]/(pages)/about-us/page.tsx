@@ -1,6 +1,7 @@
 import ContentBox from "@/app/_components/ui/ContentBox";
 import Headline from "@/app/_components/ui/Headline";
 import { Metadata } from "next";
+import { useTranslations } from "next-intl";
 import React from "react";
 
 export const metadata: Metadata = {
@@ -11,33 +12,27 @@ export const metadata: Metadata = {
 };
 
 const AboutUs = () => {
+  const t = useTranslations("AboutPage");
+
+  const paragraphs = [
+    t("textContent.paragraph1"),
+    t("textContent.paragraph2"),
+    t("textContent.paragraph3"),
+    t("textContent.paragraph4"),
+  ];
+
   return (
     <>
-      <Headline>ABOUT US</Headline>
+      <Headline>{t("title")}</Headline>
       <ContentBox extraClass="mb-16">
-        <p>
-          We specialize in creating cutting-edge websites and delivering top SEO
-          services for businesses. With a passionate team of developers,
-          designers, and digital marketing experts, we craft tailored solutions
-          that boost online visibility, improve user experience, and drive
-          results.
-        </p>
-        <p>
-          <strong>Our mission</strong> is simple: to help local and
-          international businesses grow through innovative web solutions and
-          data-driven SEO strategies.
-        </p>
-        <p>
-          We stay ahead of the curve with the latest trends, ensuring your
-          business ranks higher and stands out in the crowded digital landscape.
-        </p>
-        <p>
-          Whether you need a brand-new website, a redesign, or an SEO overhaul,
-          we&apos;re here to make your vision a reality.
-        </p>
+        {paragraphs.map((paragraph, index) => (
+          <p key={index}>
+            {index === 1 ? <strong>{paragraph}</strong> : paragraph}
+          </p>
+        ))}
       </ContentBox>
 
-      <Headline level={2}>Tech stack</Headline>
+      <Headline level={2}>{t("secondTitle")}</Headline>
       <ContentBox>
         <p>
           Frontend: HTML5 | CSS3/SCSS | Bootstrap | Tailwind CSS | MUI X |
