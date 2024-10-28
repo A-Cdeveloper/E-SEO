@@ -1,0 +1,23 @@
+{
+    "HomePage": {
+        "title": "Hello world!",
+        "about": "Here you can find activities to practise your reading skills. Reading will help you to improve your understanding of the language and build your vocabulary. The learning materials in this section are written and organised by level."
+    },
+    "AboutPage": {
+        "title": "About Us",
+        "about": "To change the locale, users can visit a prefixed route. This will take precedence over a previously matched locale that is saved in a cookie or the accept-language header and will update the previous cookie value."
+    },
+    "PortfilioPage": {
+        "title": "Portfolio"
+    },
+    "ContactPage": {
+        "title": "Contact",
+        "about": "Here you can find activities Contact"
+    },
+    "Navigation": {
+        "home": "Home",
+        "about": "About us",
+        "portfolio": "Portfolio",
+        "contact": "Contact"
+    }
+}

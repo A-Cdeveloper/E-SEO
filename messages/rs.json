@@ -1,0 +1,24 @@
+{
+    "HomePage": {
+        "title": "Zdravo svete!",
+        "about": "Ovde možete pronaći aktivnosti za vežbanje svojih veština čitanja. Čitanje će vam pomoći da poboljšate svoje razumevanje jezika i izgradite svoj rečnik. Materijali za učenje u ovom odeljku su napisani i organizovani po nivoima."
+    },
+    "AboutPage": {
+        "title": "O nama",
+        "about": "Da bi promenili lokaciju, korisnici mogu da posete rutu sa prefiksom. Ovo će imati prednost u odnosu na prethodno podudarni lokal koji je sačuvan u kolačiću ili zaglavlju jezika prihvatanja i ažuriraće prethodnu vrednost kolačića."
+    },
+    "ContactPage": {
+        "title": "Kontakt",
+        "about": "Da bi promenili lokaciju, Kontakt"
+    },
+    "ProjectsPage": {
+        "title": "Projekti",
+        "about": "Projekti"
+    },
+    "Navigation": {
+        "home": "Pocetna",
+        "about": "O nama",
+        "contact": "Kontakt",
+        "projects": "Projekti"
+    }
+}
