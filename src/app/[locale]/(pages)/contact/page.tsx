@@ -4,7 +4,7 @@ import Headline from "@/app/_components/ui/Headline";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import qrcode from "../../../images/qrcode.png";
+import qrcode from "../../../../images/qrcode.png";
 
 export const metadata: Metadata = {
   title:

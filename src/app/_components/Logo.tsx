@@ -1,6 +1,6 @@
 import Image from "next/image";
 import logo from "../../images/LOGO.png";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 const Logo = ({ isHomePage }: { isHomePage: boolean }) => {
   return (
