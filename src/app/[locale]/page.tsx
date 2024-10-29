@@ -5,12 +5,12 @@ export default function Home() {
   const t = useTranslations("HomePage");
 
   return (
-    <div className="flex flex-col h-screen justify-start lg:justify-center">
+    <div className="flex flex-col h-auto lg:h-screen justify-start lg:justify-center py-3 lg:py-0">
       <div className="grid sm:grid-cols-4 sm:grid-rows-4 gap-4 relative">
         <Card
           href="/about-us"
-          bgcolor="bg-rosa"
-          className="col-span-2 row-span-2 z-10 hover:ps-2 hover:bg-rosa/95"
+          bgcolor="bg-orange-normal"
+          className="col-span-2 row-span-2 z-10 hover:ps-2 hover:bg-orange-normal/95"
           delay={2}
           style={{
             transform: "translateX(40%) translateY(50%) scale(0.5)",

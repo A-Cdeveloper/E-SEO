@@ -1,3 +1,3 @@
 export default function Template({ children }: { children: React.ReactNode }) {
-  return <div className="pt-8 lg:pt-32">{children}</div>;
+  return <div className="py-8 lg:py-32">{children}</div>;
 }

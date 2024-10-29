@@ -7,13 +7,13 @@ type HeadlineProps = {
 const Headline = ({ level = 1, children, className = "" }: HeadlineProps) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
 
-  let fontSizeClasses = "text-6xl mb-4";
+  let fontSizeClasses = "text-4xl md:text-5xl lg:text-6xl mb-4";
   switch (level) {
     case 1:
-      fontSizeClasses = "text-6xl mb-4";
+      fontSizeClasses = "text-4xl md:text-5xl lg:text-6xl mb-4";
       break;
     case 2:
-      fontSizeClasses = "text-5xl mb-2";
+      fontSizeClasses = "text-4xl md:text-5xl lg:text-5xl mb-2";
       break;
   }
 
