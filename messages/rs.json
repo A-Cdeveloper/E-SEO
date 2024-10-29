@@ -15,8 +15,8 @@
     },
     "HomePage": {
         "metadata": {
-            "title": "E-SEO TEAM – Expert Website Creation & Optimization Solutions",
-            "description": "Professional website creation and optimization services by E-SEO TEAM. Enhance your online presence with custom-built, SEO-friendly websites designed to drive traffic and boost performance."
+            "title": "E-SEO TEAM – Najbolja rešenja za kreiranje i optimizaciju websajtova",
+            "description": "Profesionalne usluge kreiranja i optimizacije web stranica. Poboljšajte svoje prisustvo na mreži pomoću prilagođenih web lokacija prilagođenih SEO-u dizajniranih da podstaknu saobraćaj i poboljšaju performanse."
         },
         "aboutCardTitle": "O nama",
         "portfolioCardTitle": "Portfolio",
@@ -24,6 +24,10 @@
         "moto": "jedinstvena rešenja."
     },
     "AboutPage": {
+        "metadata": {
+            "title": "O nama | E-SEO TEAM - Najbolja rešenja za kreiranje i optimizaciju websajtova",
+            "description": "Specijalizovani smo za kreiranje najsavremenijih websajtova/aplikacija i pružanje vrhunskih SEO usluga"
+        },
         "title": "O nama",
         "secondTitle": "Tehnologije",
         "textContent": {
@@ -34,9 +38,17 @@
         }
     },
     "PortfilioPage": {
+        "metadata": {
+            "title": "Portfilio | E-SEO TEAM - Najbolja rešenja za kreiranje i optimizaciju websajtova",
+            "description": "Istražite E-SEO TEAM portfolio websajtova i uspešnih projekata optimizacije. Pogledajte kako smo pomogli kompanijama da povećaju svoje prisustvo na mreži pomoću najsavremenijih rešenja."
+        },
         "title": "Portfolio"
     },
     "ContactPage": {
+        "metadata": {
+            "title": "Kontakt | E-SEO TEAM - Najbolja rešenja za kreiranje i optimizaciju websajtova",
+            "description": "Kontaktirajte E-SEO TIM za stručne usluge kreiranja i optimizacije websajtova. Kontaktirajte nas danas da bismo razgovarali o vašem projektu."
+        },
         "title": "Kontakt",
         "secondTitle": "pišite nam",
         "data": {

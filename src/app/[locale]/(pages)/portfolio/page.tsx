@@ -1,17 +1,17 @@
-import ProjectsFilters from "@/app/_components/projects/ProjectsFilters";
 import Projects from "@/app/_components/projects/Projects";
-import { Suspense } from "react";
-import Headline from "@/app/_components/ui/Headline";
+import ProjectsFilters from "@/app/_components/projects/ProjectsFilters";
 import ContentBox from "@/app/_components/ui/ContentBox";
-import { Metadata } from "next";
+import Headline from "@/app/_components/ui/Headline";
 import { getTranslations } from "next-intl/server";
+import { Suspense } from "react";
 
-export const metadata: Metadata = {
-  title:
-    "Portfolio | E-SEO TEAM – Expert Website Creation & Optimization Solutions",
-  description:
-    "Explore E-SEO TEAM's portfolio of custom website designs and successful optimization projects. See how we've helped businesses grow their online presence with cutting-edge solutions.",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("PortfilioPage");
+  return {
+    title: t("metadata.title"),
+    description: t("metadata.description"),
+  };
+}
 
 const Portfolio = async ({
   searchParams,

@@ -1,15 +1,17 @@
 import ContentBox from "@/app/_components/ui/ContentBox";
 import Headline from "@/app/_components/ui/Headline";
-import { Metadata } from "next";
+
 import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import React from "react";
 
-export const metadata: Metadata = {
-  title:
-    "About us | E-SEO TEAM – Expert Website Creation & Optimization Solutions",
-  description:
-    "We specialize in creating cutting-edge websites and delivering top SEO services for businesses.",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("AboutPage");
+  return {
+    title: t("metadata.title"),
+    description: t("metadata.description"),
+  };
+}
 
 const AboutUs = () => {
   const t = useTranslations("AboutPage");

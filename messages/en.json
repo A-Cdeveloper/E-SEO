@@ -24,6 +24,10 @@
         "moto": "unique solutions."
     },
     "AboutPage": {
+        "metadata": {
+            "title": "About us | E-SEO TEAM – Expert Website Creation & Optimization Solutions",
+            "description": "We specialize in creating cutting-edge websites and delivering top SEO services for businesses."
+        },
         "title": "About Us",
         "secondTitle": "Tech stack",
         "textContent": {
@@ -34,9 +38,17 @@
         }
     },
     "PortfilioPage": {
+        "metadata": {
+            "title": "Contact | E-SEO TEAM – Expert Website Creation & Optimization Solutions",
+            "description": "Explore E-SEO TEAM's portfolio of custom website designs and successful optimization projects. See how we've helped businesses grow their online presence with cutting-edge solutions."
+        },
         "title": "Portfolio"
     },
     "ContactPage": {
+        "metadata": {
+            "title": "Contact | E-SEO TEAM – Expert Website Creation & Optimization Solutions",
+            "description": "Get in touch with E-SEO TEAM for expert website creation and optimization services. Contact us today to discuss your project and boost your online presence."
+        },
         "title": "Contact",
         "secondTitle": "Write to us",
         "data": {

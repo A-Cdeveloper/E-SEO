@@ -1,18 +1,19 @@
 import ContentBox from "@/app/_components/ui/ContentBox";
 import Form from "@/app/_components/ui/Form";
 import Headline from "@/app/_components/ui/Headline";
-import { Metadata } from "next";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import qrcode from "../../../../images/qrcode.png";
-import { useTranslations } from "next-intl";
 
-export const metadata: Metadata = {
-  title:
-    "Contact | E-SEO TEAM – Expert Website Creation & Optimization Solutions",
-  description:
-    "Get in touch with E-SEO TEAM for expert website creation and optimization services. Contact us today to discuss your project and boost your online presence.",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("ContactPage");
+  return {
+    title: t("metadata.title"),
+    description: t("metadata.description"),
+  };
+}
 
 const Contact = () => {
   const t = useTranslations("ContactPage");
