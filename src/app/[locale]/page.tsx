@@ -1,24 +1,93 @@
-import Logo from "../_components/Logo";
-import Image from "next/image";
-import ruka from "../../images/Ruka.png";
+// import Card from "../_components/ui/Card";
+// import { useTranslations } from "next-intl";
 
-import { Metadata } from "next";
+// export default function Home() {
+//   const t = useTranslations("HomePage");
 
-export const metadata: Metadata = {
-  title: "GENERALNI ŠTRAJK",
-  description: "GENERALNI ŠTRAJK",
-};
+//   return (
+//     <div className="flex flex-col h-auto lg:h-screen justify-start lg:justify-center py-3 lg:py-0">
+//       <div className="grid sm:grid-cols-4 sm:grid-rows-4 gap-4 relative">
+//         <Card
+//           href="/about-us"
+//           bgcolor="bg-orange-normal"
+//           className="col-span-2 row-span-2 z-10 hover:ps-2 hover:bg-orange-normal/95"
+//           delay={2}
+//           style={{
+//             transform: "translateX(40%) translateY(50%) scale(0.5)",
+//             opacity: 0,
+//           }}
+//           animate={{
+//             transform: "translateX(0%) translateY(0%) scale(1)",
+//             opacity: 1,
+//           }}
+//         >
+//           {t("aboutCardTitle")}
+//         </Card>
 
-export default function Home() {
-  return (
-    <div className="flex flex-col h-auto justify-center items-start text-center mt-[20%]">
-      <div className="w-[300px] text-center mx-auto mb-[50px]">
-        <Logo isHomePage={true} />
-      </div>
-      <h1 className="text-[30px] lg:text-[60px] font-bold uppercase w-full">
-        GENERALNI ŠTRAJK
-      </h1>
-      <p className="text-2xl text-center w-full mt-5">Petak 24.01.2025.</p>
-    </div>
-  );
-}
+//         <Card
+//           href="/portfolio"
+//           bgcolor="bg-turquoise"
+//           className="col-span-2 row-span-2 z-20 hover:ps-2  hover:bg-turquoise/95"
+//           delay={3}
+//           style={{
+//             transform: "translateX(-50%) translateY(50%) scale(0.5)",
+//             opacity: 0,
+//           }}
+//           animate={{
+//             transform: "translateX(0%) translateY(0%) scale(1)",
+//             opacity: 1,
+//           }}
+//         >
+//           {t("portfolioCardTitle")}
+//         </Card>
+
+//         <Card
+//           bgcolor="bg-gray-dark"
+//           className=" col-span-2 row-span-2 z-40 hidden sm:block"
+//           delay={7}
+//           style={{
+//             transform:
+//               "translateX(52.5%) translateY(-52.5%) scale(0.70) rotate(45deg)",
+//           }}
+//           animate={{
+//             transform:
+//               "translateX(52.5%) translateY(-52.5%) scale(.3) rotate(0deg)",
+//           }}
+//         ></Card>
+
+//         <Card
+//           href="/contact"
+//           bgcolor="bg-dirty"
+//           headlineColor="text-black"
+//           className="col-span-2 row-span-2 z-30 hover:ps-2  hover:bg-dirty/95"
+//           delay={5}
+//           style={{
+//             transform: "translateX(-50%) translateY(-50%) scale(0.5)",
+//             opacity: 0,
+//           }}
+//           animate={{
+//             transform: "translateX(0%) translateY(0%) scale(1)",
+//             opacity: 1,
+//           }}
+//         >
+//           {t("contactCardTitle")}
+//         </Card>
+
+//         <Card
+//           bgcolor="bg-gray-dark"
+//           className="z-30 relative sm:absolute bottom-0 left-0 w-full sm:w-1/2"
+//           headlineColor="font-normal text-center px-10 opacity-60"
+//           delay={10}
+//           style={{
+//             opacity: 0,
+//           }}
+//           animate={{
+//             opacity: 1,
+//           }}
+//         >
+//           {t("moto")}
+//         </Card>
+//       </div>
+//     </div>
+//   );
+// }
