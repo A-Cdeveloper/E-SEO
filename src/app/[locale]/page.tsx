@@ -19,13 +19,6 @@ export default function Home() {
         GENERALNI ŠTRAJK
       </h1>
       <p className="text-2xl text-center w-full mt-5">Petak 24.01.2025.</p>
-      <Image
-        src={ruka}
-        alt="logo"
-        width={450}
-        height={300}
-        className="mx-auto"
-      />
     </div>
   );
 }
