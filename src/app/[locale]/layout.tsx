@@ -2,9 +2,9 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import Sidebar from "../_components/Sidebar";
+//import Sidebar from "../_components/Sidebar";
 import "./globals.css";
-import LangsSwitcher from "../_components/LangsSwitcher";
+//import LangsSwitcher from "../_components/LangsSwitcher";
 
 export async function generateMetadata() {
   const t = await getTranslations("HomePage");
@@ -35,8 +35,8 @@ export default async function RootLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <div className="container max-w-6xl mx-auto flex justify-between flex-wrap h-screen relative">
-            <LangsSwitcher />
-            <Sidebar />
+            {/* <LangsSwitcher /> */}
+            {/* <Sidebar /> */}
 
             <div className="flex-1 border-l border-white/10 px-4 lg:px-10">
               {children}
