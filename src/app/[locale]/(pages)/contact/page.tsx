@@ -5,9 +5,12 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import qrcode from "../../../../images/qrcode.png";
+import { routing } from "@/i18n/routing";
 
-// Force static generation
-export const dynamic = "force-static";
+// Generate static pages for all locales
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata() {
   const t = await getTranslations("ContactPage");

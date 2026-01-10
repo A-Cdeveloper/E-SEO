@@ -1,8 +1,11 @@
 import Card from "../_components/ui/Card";
 import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 
-// Force static generation
-export const dynamic = "force-static";
+// Generate static pages for all locales
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function Home() {
   const t = await getTranslations("HomePage");

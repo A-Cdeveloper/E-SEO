@@ -4,6 +4,12 @@ import ContentBox from "@/app/_components/ui/ContentBox";
 import Headline from "@/app/_components/ui/Headline";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
+import { routing } from "@/i18n/routing";
+
+// Generate static pages for all locales
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 // Use ISR (Incremental Static Regeneration) - revalidate every 3600 seconds (1 hour)
 export const revalidate = 3600;

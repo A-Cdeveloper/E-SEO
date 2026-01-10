@@ -3,9 +3,12 @@ import Headline from "@/app/_components/ui/Headline";
 
 import { getTranslations } from "next-intl/server";
 import React from "react";
+import { routing } from "@/i18n/routing";
 
-// Force static generation
-export const dynamic = "force-static";
+// Generate static pages for all locales
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata() {
   const t = await getTranslations("AboutPage");
