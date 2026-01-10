@@ -1,8 +1,11 @@
 import Card from "../_components/ui/Card";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export default function Home() {
-  const t = useTranslations("HomePage");
+// Force static generation
+export const dynamic = "force-static";
+
+export default async function Home() {
+  const t = await getTranslations("HomePage");
 
   return (
     <div className="flex flex-col h-auto lg:h-screen justify-start lg:justify-center py-3 lg:py-0">

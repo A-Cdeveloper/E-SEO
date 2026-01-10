@@ -6,6 +6,11 @@ import Sidebar from "../_components/Sidebar";
 import "./globals.css";
 import LangsSwitcher from "../_components/LangsSwitcher";
 
+// Generate static params for all locales at build time
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export async function generateMetadata() {
   const t = await getTranslations("HomePage");
   return {

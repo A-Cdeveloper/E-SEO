@@ -1,11 +1,13 @@
 import ContentBox from "@/app/_components/ui/ContentBox";
 import Form from "@/app/_components/ui/Form";
 import Headline from "@/app/_components/ui/Headline";
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import qrcode from "../../../../images/qrcode.png";
+
+// Force static generation
+export const dynamic = "force-static";
 
 export async function generateMetadata() {
   const t = await getTranslations("ContactPage");
@@ -15,8 +17,8 @@ export async function generateMetadata() {
   };
 }
 
-const Contact = () => {
-  const t = useTranslations("ContactPage");
+const Contact = async () => {
+  const t = await getTranslations("ContactPage");
   return (
     <>
       <Headline>{t("title")}</Headline>

@@ -5,6 +5,9 @@ import Headline from "@/app/_components/ui/Headline";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 
+// Use ISR (Incremental Static Regeneration) - revalidate every 3600 seconds (1 hour)
+export const revalidate = 3600;
+
 export async function generateMetadata() {
   const t = await getTranslations("PortfilioPage");
   return {

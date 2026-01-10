@@ -1,9 +1,11 @@
 import ContentBox from "@/app/_components/ui/ContentBox";
 import Headline from "@/app/_components/ui/Headline";
 
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import React from "react";
+
+// Force static generation
+export const dynamic = "force-static";
 
 export async function generateMetadata() {
   const t = await getTranslations("AboutPage");
@@ -13,8 +15,8 @@ export async function generateMetadata() {
   };
 }
 
-const AboutUs = () => {
-  const t = useTranslations("AboutPage");
+const AboutUs = async () => {
+  const t = await getTranslations("AboutPage");
 
   const paragraphs = [
     t("textContent.paragraph1"),

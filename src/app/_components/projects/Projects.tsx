@@ -2,29 +2,47 @@ import prisma from "@/db/db";
 import { ProjectType } from "@/types/project";
 import PaginatedProjects from "./PaginatedProjects";
 import { getTranslations } from "next-intl/server";
+import { unstable_cache } from "next/cache";
+
+// Cache projects query for 1 hour
+const getCachedProjects = unstable_cache(
+  async (filterKey?: string) => {
+    if (filterKey) {
+      return await prisma.project.findMany({
+        where: {
+          project_platform: {
+            equals: filterKey,
+            mode: "insensitive", // Case-insensitive filter
+          },
+        },
+        orderBy: {
+          project_name: "asc",
+        },
+      });
+    } else {
+      return await prisma.project.findMany({
+        orderBy: {
+          project_name: "asc",
+        },
+      });
+    }
+  },
+  ["projects"], // Base cache key
+  {
+    revalidate: 3600, // Cache for 1 hour
+    tags: ["projects"],
+  }
+);
 
 const Projects = async ({ filter }: { filter: string }) => {
   const t = await getTranslations("website");
-  let query = {};
-
-  if (filter) {
-    query = {
-      where: {
-        project_platform: {
-          equals: filter,
-          mode: "insensitive", // Case-insensitive filter
-        },
-      },
-      orderBy: {
-        project_name: "asc",
-      },
-    };
-  }
 
   let projects: ProjectType[] = [];
 
   try {
-    projects = await prisma.project.findMany(query);
+    // Use filter as part of the cache by calling with different parameter
+    // Note: unstable_cache will cache based on the function call parameters
+    projects = await getCachedProjects(filter);
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.error(error.message); // Safely access `message`
