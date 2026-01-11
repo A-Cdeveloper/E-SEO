@@ -10,6 +10,9 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+// Force static generation
+export const dynamic = "force-static";
+
 export async function generateMetadata() {
   const t = await getTranslations("AboutPage");
   return {
