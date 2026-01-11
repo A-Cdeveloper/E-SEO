@@ -1,10 +1,11 @@
-import Projects from "@/app/_components/projects/Projects";
 import ProjectsFilters from "@/app/_components/projects/ProjectsFilters";
 import ContentBox from "@/app/_components/ui/ContentBox";
 import Headline from "@/app/_components/ui/Headline";
 import { getTranslations } from "next-intl/server";
-import { Suspense } from "react";
 import { routing } from "@/i18n/routing";
+import PaginatedProjects from "@/app/_components/projects/PaginatedProjects";
+import prisma from "@/db/db";
+import { unstable_cache } from "next/cache";
 
 // Generate static pages for all locales
 export function generateStaticParams() {
@@ -13,6 +14,22 @@ export function generateStaticParams() {
 
 // Force static generation - no searchParams means static page
 export const dynamic = "force-static";
+
+// Cache projects query for 1 hour
+const getCachedProjects = unstable_cache(
+  async () => {
+    return await prisma.project.findMany({
+      orderBy: {
+        project_name: "asc",
+      },
+    });
+  },
+  ["projects"],
+  {
+    revalidate: 3600, // Cache for 1 hour
+    tags: ["projects"],
+  }
+);
 
 export async function generateMetadata() {
   const t = await getTranslations("PortfilioPage");
@@ -25,14 +42,15 @@ export async function generateMetadata() {
 const Portfolio = async () => {
   const t = await getTranslations("PortfilioPage");
 
+  // Fetch all projects at build time (static generation)
+  const projects = await getCachedProjects();
+
   return (
     <>
       <Headline>{t("title")}</Headline>
       <ContentBox>
         <ProjectsFilters />
-        <Suspense fallback={<div>Loading...</div>}>
-          <Projects />
-        </Suspense>
+        <PaginatedProjects projects={projects} />
       </ContentBox>
     </>
   );
