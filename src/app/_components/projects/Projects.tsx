@@ -1,7 +1,6 @@
 import prisma from "@/db/db";
 import { ProjectType } from "@/types/project";
 import PaginatedProjects from "./PaginatedProjects";
-import { getTranslations } from "next-intl/server";
 import { unstable_cache } from "next/cache";
 
 // Cache projects query for 1 hour
@@ -34,15 +33,12 @@ const getCachedProjects = unstable_cache(
   }
 );
 
-const Projects = async ({ filter }: { filter: string }) => {
-  const t = await getTranslations("website");
-
+const Projects = async () => {
   let projects: ProjectType[] = [];
 
   try {
-    // Use filter as part of the cache by calling with different parameter
-    // Note: unstable_cache will cache based on the function call parameters
-    projects = await getCachedProjects(filter);
+    // Fetch all projects (no filter) - filtering happens on client side
+    projects = await getCachedProjects();
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.error(error.message); // Safely access `message`
@@ -50,19 +46,8 @@ const Projects = async ({ filter }: { filter: string }) => {
     }
     throw new Error("Unknown error fetching projects!");
   }
-  const numberOfProjects = projects.length;
 
-  return (
-    <>
-      <div className="text-end">
-        <span className="inline-block my-3 text-sm text-white/60">
-          {t("pagination.numberOfProjects")}{" "}
-          <span className="text-white font-bold">{numberOfProjects}</span>
-        </span>
-      </div>
-      <PaginatedProjects projects={projects} />
-    </>
-  );
+  return <PaginatedProjects projects={projects} />;
 };
 
 export default Projects;

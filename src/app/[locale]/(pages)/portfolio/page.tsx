@@ -11,8 +11,8 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-// Use ISR (Incremental Static Regeneration) - revalidate every 3600 seconds (1 hour)
-export const revalidate = 3600;
+// Force static generation - no searchParams means static page
+export const dynamic = "force-static";
 
 export async function generateMetadata() {
   const t = await getTranslations("PortfilioPage");
@@ -22,21 +22,16 @@ export async function generateMetadata() {
   };
 }
 
-const Portfolio = async ({
-  searchParams,
-}: {
-  searchParams: Promise<{ [key: string]: string }>;
-}) => {
-  const { filter } = await searchParams;
+const Portfolio = async () => {
   const t = await getTranslations("PortfilioPage");
-  // console.log(filter);
+
   return (
     <>
       <Headline>{t("title")}</Headline>
       <ContentBox>
         <ProjectsFilters />
         <Suspense fallback={<div>Loading...</div>}>
-          <Projects filter={filter} />
+          <Projects />
         </Suspense>
       </ContentBox>
     </>
