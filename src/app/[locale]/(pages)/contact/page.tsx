@@ -12,8 +12,8 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-// Force static generation
-export const dynamic = "force-static";
+// Only use params from generateStaticParams (prevents dynamic generation)
+export const dynamicParams = false;
 
 export async function generateMetadata() {
   const t = await getTranslations("ContactPage");

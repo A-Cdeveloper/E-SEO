@@ -12,8 +12,8 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-// Force static generation - no searchParams means static page
-export const dynamic = "force-static";
+// Only use params from generateStaticParams (prevents dynamic generation)
+export const dynamicParams = false;
 
 // Cache projects query for 1 hour
 const getCachedProjects = unstable_cache(
