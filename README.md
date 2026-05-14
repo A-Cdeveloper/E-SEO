@@ -1,148 +1,108 @@
 # E-SEO TEAM Website
 
-A modern, multilingual website for E-SEO TEAM - a professional web development and SEO services company. Built with Next.js 14, TypeScript, and PostgreSQL.
+A multilingual marketing site for E-SEO TEAM (web development and SEO). Built with **Next.js 16** (App Router), **React 19**, **TypeScript**, **PostgreSQL**, and **next-intl**.
 
-## 🌐 Live Website
+Keep dependencies aligned with security advisories (e.g. [Next.js security releases](https://vercel.com/changelog/next-js-may-2026-security-release)).
 
-**Visit our website**: [www.e-seo.info](https://www.e-seo.info)
+## Live site
 
-## 🌟 Features
+**[www.e-seo.info](https://www.e-seo.info)**
 
-- **Multilingual Support**: English and Serbian localization
-- **Modern UI/UX**: Beautiful animations with Framer Motion
-- **Portfolio Showcase**: Dynamic project filtering and pagination
-- **Contact Form**: Email integration with Resend
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **SEO Optimized**: Meta tags, structured data, and performance optimized
-- **Database Integration**: PostgreSQL with Prisma ORM
+## Features
 
-## 🛠️ Tech Stack
+- **Locales**: English (`/en`) and Serbian (`/rs`) via `messages/*.json` and `src/i18n/`
+- **UI**: Tailwind CSS, Framer Motion
+- **Portfolio**: Prisma + PostgreSQL, client-side filters/pagination
+- **Contact**: Server Actions, Zod validation, Resend + React Email templates
+- **Rendering**: SSG for home, about, and contact (per locale); portfolio remains dynamic with cached DB reads
+- **Edge**: `src/proxy.ts` (Next 16 proxy convention) wrapping `next-intl` routing
 
-### Frontend
+## Tech stack
 
-- **Next.js 14** - React framework with App Router
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **next-intl** - Internationalization
+| Area | Choices |
+|------|---------|
+| Framework | Next.js 16 (App Router, Turbopack build) |
+| UI | React 19, Tailwind CSS, Framer Motion |
+| i18n | next-intl v4 |
+| Data | Prisma 5, PostgreSQL |
+| Email | Resend, React Email (`@react-email/*`) |
+| Quality | ESLint 9 + `eslint-config-next`, TypeScript strict |
 
-### Backend & Database
-
-- **Prisma** - Database ORM
-- **PostgreSQL** - Primary database
-- **Resend** - Email service integration
-
-### Development Tools
-
-- **ESLint** - Code linting
-- **PostCSS** - CSS processing
-- **dotenv-cli** - Environment management
-
-## 📁 Project Structure
+## Project layout
 
 ```
 src/
 ├── app/
-│   ├── [locale]/           # Internationalized routes
-│   │   ├── (pages)/        # Page components
-│   │   │   ├── about-us/   # About page
-│   │   │   ├── contact/    # Contact page
-│   │   │   └── portfolio/  # Portfolio page
-│   │   ├── layout.tsx      # Root layout
-│   │   └── page.tsx        # Home page
-│   ├── _components/        # Shared components
-│   │   ├── ui/            # UI components
-│   │   ├── projects/      # Portfolio components
-│   │   ├── Sidebar.tsx    # Navigation sidebar
-│   │   └── LangsSwitcher.tsx # Language switcher
-│   └── _actions/          # Server actions
-├── i18n/                  # Internationalization config
-├── db/                    # Database utilities
-├── email-templates/       # Email templates
-├── types/                 # TypeScript types
-├── utils/                 # Utility functions
-└── images/               # Static images
+│   ├── [locale]/           # Localized routes + layout + globals.css
+│   ├── _components/        # Shared UI, portfolio widgets, etc.
+│   └── _actions/           # Server actions (e.g. contact)
+├── i18n/                   # Routing + request config for next-intl
+├── db/                     # Prisma singleton
+├── email-templates/        # React Email templates
+├── utils/                  # Zod helpers, contact rate limit, …
+└── images/
 
-messages/
-├── en.json               # English translations
-└── rs.json              # Serbian translations
-
-prisma/
-└── schema.prisma        # Database schema
+messages/                   # en.json, rs.json
+prisma/schema.prisma
+src/proxy.ts                # next-intl proxy (replaces legacy middleware file name)
 ```
 
-## 🚀 Development
+## Prerequisites
 
-### Prerequisites
+- **Node.js 20+** (recommended for Next 16)
+- **PostgreSQL** (connection string for Prisma)
+- **Resend API key** if you want to send mail from the contact form
 
-- Node.js 18+
-- PostgreSQL database
-- Resend API key (for email functionality)
+## Environment
 
-## 🌐 Internationalization
+Use **`.env.development`** locally and **`.env.production`** (or your host’s env UI) in production. Common variables:
 
-The website supports multiple languages:
+| Variable | Purpose |
+|----------|---------|
+| `POSTGRES_URL` | Prisma / PostgreSQL connection |
+| `RESEND_API_KEY` | Outbound mail from the contact form |
+| `CONTACT_RATE_LIMIT_MAX` | Optional; default `5` submissions per IP window |
+| `CONTACT_RATE_LIMIT_WINDOW_MS` | Optional; default `900000` (15 minutes) |
+| `ENABLE_HSTS` | Set to `true` on non-Vercel HTTPS hosts if you want HSTS (Vercel production sets `VERCEL_ENV` automatically) |
 
-- **English** (`/en`) - Default language
-- **Serbian** (`/rs`) - Serbian language
+**Resend `from` address:** not read from env. Production uses the verified sender constant in `src/app/_actions/index.ts` (`CONTACT_FORM_FROM`). In **`next dev`**, the code uses Resend’s **`onboarding@resend.dev`** sandbox sender so local testing does not require your domain `from`.
 
-Language files are located in the `messages/` directory. To add a new language:
+## Scripts
 
-1.  Create a new JSON file in `messages/`
-2.  Add the locale to `src/i18n/routing.ts`
-3.  Update the language switcher component
-
-## 📧 Contact Form
-
-The contact form integrates with Resend for email delivery:
-
-- Form validation with Zod
-- Email templates with React Email
-- Automatic email notifications
-
-## 🎨 Customization
-
-### Styling
-
-- Colors and themes are defined in `tailwind.config.ts`
-- Global styles in `src/app/[locale]/globals.css`
-- Component-specific styles use Tailwind classes
-
-### Content
-
-- Text content is managed through translation files
-- Images are stored in `src/images/`
-- Static files in `public/` directory
-
-## 🗄️ Database
-
-The project uses PostgreSQL with the following schema:
-
-```
-model Project {
-  project_id       Int     @id @default(autoincrement())
-  project_name     String? @db.VarChar(255)
-  project_url      String? @db.VarChar(255)
-  project_platform String? @db.VarChar(255)
-
-  @@map("projects")
-}
+```bash
+npm run dev          # next dev
+npm run build        # prisma generate && next build
+npm run start        # next start
+npm run lint         # next lint
 ```
 
-## 🚀 Deployment
+Prisma Studio (with dotenv files you maintain):
 
-This website is deployed on **Vercel** and automatically updates on every push to the main branch.
+```bash
+npm run pstudiolocal
+npm run pstudioprod
+```
 
-## 📄 License
+## i18n
 
-This project is private and proprietary to E-SEO TEAM.
+1. Add strings under `messages/<locale>.json`
+2. Register locales in `src/i18n/routing.ts`
+3. Use `next-intl` hooks / `getTranslations` in components and server modules
 
-## 📞 Contact
+## Security headers
+
+`next.config.mjs` sets baseline **CSP**, **Referrer-Policy**, **Permissions-Policy**, **nosniff**, and **HSTS** when `VERCEL_ENV === "production"` or `ENABLE_HSTS=true`. Tighten CSP further (e.g. nonces) if you add third-party scripts.
+
+## Deployment
+
+Deployed on **Vercel** (typical: production env vars + PostgreSQL provider such as Neon).
+
+## License
+
+Private and proprietary to E-SEO TEAM.
+
+## Contact
 
 - **Phone**: +381 63 7675989
 - **Email**: kontakt@e-seo.info
 - **Website**: [www.e-seo.info](https://www.e-seo.info)
-
----
-
-**E-SEO TEAM** - Professional website creation and optimization solutions
