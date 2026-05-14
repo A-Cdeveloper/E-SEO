@@ -4,11 +4,7 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Optimize for Vercel
-  experimental: {
-    // Reduce function invocations
-    serverComponentsExternalPackages: ["@prisma/client"],
-  },
+  serverExternalPackages: ["@prisma/client"],
   // Cache static assets
   images: {
     formats: ["image/avif", "image/webp"],
