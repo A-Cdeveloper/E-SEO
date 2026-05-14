@@ -1,21 +1,18 @@
 import ContentBox from "@/app/_components/ui/ContentBox";
 import Form from "@/app/_components/ui/Form";
 import Headline from "@/app/_components/ui/Headline";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import qrcode from "../../../../images/qrcode.png";
-import { routing } from "@/i18n/routing";
 
-// Generate static pages for all locales
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+export const dynamic = "force-static";
 
-// Only use params from generateStaticParams (prevents dynamic generation)
-export const dynamicParams = false;
+type Props = { params: Promise<{ locale: string }> };
 
-export async function generateMetadata() {
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("ContactPage");
   return {
     title: t("metadata.title"),
@@ -23,7 +20,9 @@ export async function generateMetadata() {
   };
 }
 
-const Contact = async () => {
+const Contact = async ({ params }: Props) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("ContactPage");
   return (
     <>
