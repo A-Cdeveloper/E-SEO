@@ -2,8 +2,16 @@
 
 import { createFormSchema } from "@/utils/formvalidation";
 import EmailTemplate from "@/email-templates/EmailTemplate";
+import { checkContactRateLimit } from "@/utils/contactRateLimit";
 import { Resend } from "resend";
 import { getTranslations } from "next-intl/server";
+import { headers } from "next/headers";
+
+/** Verified sender in Resend — production only (no env). */
+const CONTACT_FORM_FROM = "E-SEO <office@e-seo.info>";
+
+/** Resend test sender — use locally so `from` does not require your verified domain. */
+const RESEND_LOCAL_FROM = "onboarding@resend.dev";
 
 //const timeout = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
@@ -30,7 +38,7 @@ export type SendMessageState =
 
 export const sendMessage = async (
   previousState: SendMessageState,
-  formData: FormData
+  formData: FormData,
 ): Promise<SendMessageState> => {
   const custumer: ContactFormValues = {
     fullname: (formData.get("fullname") as string) ?? "",
@@ -62,10 +70,30 @@ export const sendMessage = async (
     };
   }
 
+  const headerList = await headers();
+  const clientIp =
+    headerList.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    headerList.get("x-real-ip")?.trim() ||
+    "unknown";
+  const max = Number(process.env.CONTACT_RATE_LIMIT_MAX) || 5;
+  const windowMs =
+    Number(process.env.CONTACT_RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000;
+  if (!checkContactRateLimit(`contact:${clientIp}`, max, windowMs)) {
+    return {
+      status: "error",
+      message: t("rateLimit"),
+      values: custumer,
+    };
+  }
+
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
+    const fromAddress =
+      process.env.NODE_ENV === "development"
+        ? RESEND_LOCAL_FROM
+        : CONTACT_FORM_FROM;
     await resend.emails.send({
-      from: "onboarding@resend.dev",
+      from: fromAddress,
       to: "kontakt@e-seo.info",
       subject: "Form from E-SEO Website",
       react: EmailTemplate({ ...custumer }),

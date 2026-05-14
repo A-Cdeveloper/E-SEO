@@ -107,6 +107,7 @@
             "phoneRequired": "Telefon je obavezan",
             "phoneFormat": "Telefon mora biti u formatu +381123456789"
         },
+        "rateLimit": "Previše pokušaja slanja sa ove adrese. Pokušajte ponovo za nekoliko minuta.",
         "successMsg": "Hvala vam na poruci. Odgovoricemo Vam u najkraćem mogućem roku."
     }
 }
