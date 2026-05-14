@@ -9,18 +9,34 @@ import { getTranslations } from "next-intl/server";
 
 export type ErrorTypeArr = { field: string; message: string };
 
+export type ContactFormValues = {
+  fullname: string;
+  email: string;
+  phone: string;
+  message: string;
+};
+
+export type SendMessageState =
+  | null
+  | {
+      status: "success";
+      message: string;
+    }
+  | {
+      status: "error";
+      message: string | ErrorTypeArr[];
+      values: ContactFormValues;
+    };
+
 export const sendMessage = async (
-  previousState: unknown,
+  previousState: SendMessageState,
   formData: FormData
-): Promise<{
-  status: "success" | "error";
-  message: string | ErrorTypeArr[];
-}> => {
-  const custumer = {
-    fullname: formData.get("fullname") as string,
-    email: formData.get("email") as string,
-    phone: formData.get("phone") as string,
-    message: formData.get("message") as string,
+): Promise<SendMessageState> => {
+  const custumer: ContactFormValues = {
+    fullname: (formData.get("fullname") as string) ?? "",
+    email: (formData.get("email") as string) ?? "",
+    phone: (formData.get("phone") as string) ?? "",
+    message: (formData.get("message") as string) ?? "",
   };
 
   const t = await getTranslations("ContactPage");
@@ -39,7 +55,11 @@ export const sendMessage = async (
       return errorArr;
     });
 
-    return { status: "error", message: errorArr as ErrorTypeArr[] };
+    return {
+      status: "error",
+      message: errorArr as ErrorTypeArr[],
+      values: custumer,
+    };
   }
 
   try {
@@ -59,7 +79,8 @@ export const sendMessage = async (
   } catch (error) {
     return {
       status: "error",
-      message: error as string,
+      message: error instanceof Error ? error.message : String(error),
+      values: custumer,
     };
   }
 
