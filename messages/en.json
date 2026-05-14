@@ -30,6 +30,36 @@
         },
         "title": "About Us",
         "secondTitle": "Tech stack",
+        "techStack": [
+            {
+                "label": "Frontend",
+                "technologies": "HTML5 | CSS3/SCSS | Tailwind CSS | Bootstrap | JavaScript (ES6+) | TypeScript | React | React Native | Next.js | MUI X | Redux Toolkit | Zustand"
+            },
+            {
+                "label": "Backend & APIs",
+                "technologies": "Node.js | Express | REST API | PHP"
+            },
+            {
+                "label": "CMS & e-commerce",
+                "technologies": "WordPress | WooCommerce"
+            },
+            {
+                "label": "Databases",
+                "technologies": "MySQL | SQLite | MongoDB | PostgreSQL"
+            },
+            {
+                "label": "Testing",
+                "technologies": "Jest | Vitest | Cypress (unit & integration, E2E)"
+            },
+            {
+                "label": "DevOps",
+                "technologies": "Git | Docker | CI/CD (GitHub Actions, Vercel)"
+            },
+            {
+                "label": "AI / LLM",
+                "technologies": "AI | LLM"
+            }
+        ],
         "textContent": {
             "paragraph1": "We specialize in creating cutting-edge websites and delivering top SEO services for businesses. With a passionate team of developers, designers, and digital marketing experts, we craft tailored solutions that boost online visibility, improve user experience, and drive results.",
             "paragraph2": "Our mission is simple: to help local and international businesses grow through innovative web solutions and data-driven SEO strategies.",

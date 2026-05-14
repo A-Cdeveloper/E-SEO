@@ -30,6 +30,36 @@
         },
         "title": "O nama",
         "secondTitle": "Tehnologije",
+        "techStack": [
+            {
+                "label": "Frontend",
+                "technologies": "HTML5 | CSS3/SCSS | Tailwind CSS | Bootstrap | JavaScript (ES6+) | TypeScript | React | React Native | Next.js | MUI X | Redux Toolkit | Zustand"
+            },
+            {
+                "label": "Backend i API",
+                "technologies": "Node.js | Express | REST API | PHP"
+            },
+            {
+                "label": "CMS i e-trgovina",
+                "technologies": "WordPress | WooCommerce"
+            },
+            {
+                "label": "Baze podataka",
+                "technologies": "MySQL | SQLite | MongoDB | PostgreSQL"
+            },
+            {
+                "label": "Testiranje",
+                "technologies": "Jest | Vitest | Cypress (unit i integraciono, E2E)"
+            },
+            {
+                "label": "DevOps",
+                "technologies": "Git | Docker | CI/CD (GitHub Actions, Vercel)"
+            },
+            {
+                "label": "AI / LLM",
+                "technologies": "AI | LLM"
+            }
+        ],
         "textContent": {
             "paragraph1": "Specijalizovani smo za kreiranje najsavremenijih websajtova i aplikacija i pružanje vrhunskih SEO usluga. Sa  timom programera, dizajnera i stručnjaka za digitalni marketing, pravimo prilagođena rešenja koja povećavaju vidljivost na mreži, poboljšavaju korisničko iskustvo i postižu rezultate.",
             "paragraph2": "Naša misija je jednostavna: da pomognemo lokalnim i međunarodnim kompanijama da rastu kroz inovativna web rešenja i SEO strategije zasnovane na podacima.",

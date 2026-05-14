@@ -1,19 +1,17 @@
 import ContentBox from "@/app/_components/ui/ContentBox";
 import Headline from "@/app/_components/ui/Headline";
 
-import { getTranslations } from "next-intl/server";
-import React from "react";
-import { routing } from "@/i18n/routing";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-// Generate static pages for all locales
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+type TechStackSection = { label: string; technologies: string };
 
-// Only use params from generateStaticParams (prevents dynamic generation)
-export const dynamicParams = false;
+export const dynamic = "force-static";
 
-export async function generateMetadata() {
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("AboutPage");
   return {
     title: t("metadata.title"),
@@ -21,8 +19,11 @@ export async function generateMetadata() {
   };
 }
 
-const AboutUs = async () => {
+const AboutUs = async ({ params }: Props) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations("AboutPage");
+  const techStack = t.raw("techStack") as TechStackSection[];
 
   const paragraphs = [
     t("textContent.paragraph1"),
@@ -44,13 +45,14 @@ const AboutUs = async () => {
 
       <Headline level={2}>{t("secondTitle")}</Headline>
       <ContentBox>
-        <p>
-          Frontend: HTML5 | CSS3/SCSS | Bootstrap | Tailwind CSS | MUI X |
-          JavaScript (ES6+) | React | React Native | Next.js | Redux <br />
-          CMS: Wordpress | Woocommerce <br />
-          Backend: Node.js, Express | Php <br />
-          Databases: MySQL | SQLite | MongoDB | PostgreSQL
-        </p>
+        <div className="space-y-4">
+          {techStack.map((section) => (
+            <p key={section.label}>
+              <strong className="text-white">{section.label}:</strong>{" "}
+              {section.technologies}
+            </p>
+          ))}
+        </div>
       </ContentBox>
     </>
   );
